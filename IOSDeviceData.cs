@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using System.Linq;
 using SystemInfo = UnityEngine.Device.SystemInfo;
+using System.Net;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -34,15 +35,24 @@ public class IOSDeviceData {
     public IOSDeviceData() {
         LoadData();
 #if UNITY_EDITOR
+        EditorApplication.playModeStateChanged -= OnPlayModeChanged;
+        EditorApplication.playModeStateChanged += OnPlayModeChanged;
         EditorApplication.update -= Update;
         EditorApplication.update += Update;
 #endif
     }
 
-    void Update() {
 #if UNITY_EDITOR
-        if (!EditorApplication.isPlaying) return;
+    private void OnPlayModeChanged(PlayModeStateChange change) {
+        // Reset when exiting play mode
+        if (change != PlayModeStateChange.ExitingPlayMode) return;
+        EditorApplication.playModeStateChanged -= OnPlayModeChanged;
+        EditorApplication.update -= Update;
+        instance = null;
+    }
 #endif
+
+    void Update() {
         // Device model changed in simulator
         if (SystemInfo.deviceModel != deviceModel) {
             LoadData();
@@ -87,7 +97,7 @@ public class IOSDeviceData {
                 deviceName = fields[deviceNameInd];
                 int.TryParse(fields[notchHeightInd], out notchHeight);
 #if UNITY_EDITOR
-                Debug.Log($"Device model found for {deviceName}");
+                Debug.Log($"Device model: {deviceName} ({SystemInfo.deviceModel})");
 #endif
                 break;
             }
