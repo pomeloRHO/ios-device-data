@@ -3,7 +3,6 @@ using System;
 using UnityEngine;
 using System.Linq;
 using SystemInfo = UnityEngine.Device.SystemInfo;
-using System.Net;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -19,6 +18,7 @@ public class IOSDeviceData {
     string deviceModel;
     string deviceName;
     int notchHeight;
+    bool deviceSupported;
 
     static IOSDeviceData instance;
     public static IOSDeviceData Instance {
@@ -31,6 +31,7 @@ public class IOSDeviceData {
     }
     public static string Name => Instance.deviceName;
     public static int NotchHeight => Instance.notchHeight;
+    public static bool DeviceSupported => Instance.deviceSupported;
 
     public IOSDeviceData() {
         LoadData();
@@ -61,6 +62,10 @@ public class IOSDeviceData {
 
     void LoadData() {
         deviceModel = SystemInfo.deviceModel;
+        notchHeight = 0;
+        // If the device is not on the list, mark it as unsopported,
+        // in that case the data given by unity should be used instead
+        deviceSupported = false;
 
         var textAsset = Resources.Load<TextAsset>("iOSDeviceData/DeviceData");
         var csvParser = new Regex(PATTERN);
@@ -96,6 +101,7 @@ public class IOSDeviceData {
             if (models.Contains(SystemInfo.deviceModel)) {
                 deviceName = fields[deviceNameInd];
                 int.TryParse(fields[notchHeightInd], out notchHeight);
+                deviceSupported = true;
 #if UNITY_EDITOR
                 Debug.Log($"Device model: {deviceName} ({SystemInfo.deviceModel})");
 #endif
