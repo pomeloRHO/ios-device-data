@@ -16,24 +16,24 @@ iPhone 7,"iPhone9,1;iPhone9,3",0
 iPhone 7 Plus,"iPhone9,2;iPhone9,4",0
 iPhone 8,"iPhone10,1;iPhone10,4",0
 iPhone 8 Plus,"iPhone10,2;iPhone10,5",0
-iPhone X,"iPhone10,3;iPhone10,6",50
-iPhone XR,"iPhone11,8",50
-iPhone XS,"iPhone11,2",50
-iPhone XS Max,"iPhone11,4;iPhone11,6",50
-iPhone 11,"iPhone12,1",50
-iPhone 11 Pro,"iPhone12,3",50
-iPhone 11 Pro Max,"iPhone12,5",50
-iPhone SE 2nd Gen,"iPhone12,8",50
-iPhone 12 Mini,"iPhone13,1",50
-iPhone 12,"iPhone13,2",50
-iPhone 12 Pro,"iPhone13,3",50
-iPhone 12 Pro Max,"iPhone13,4",50
-iPhone 13 Mini,"iPhone14,4",50
-iPhone 13,"iPhone14,5",50
-iPhone 13 Pro,"iPhone14,2",50
-iPhone 13 Pro Max,"iPhone14,3",50
+iPhone X,"iPhone10,3;iPhone10,6",92
+iPhone XR,"iPhone11,8",65
+iPhone XS,"iPhone11,2",92
+iPhone XS Max,"iPhone11,4;iPhone11,6",92
+iPhone 11,"iPhone12,1",65
+iPhone 11 Pro,"iPhone12,3",92
+iPhone 11 Pro Max,"iPhone12,5",92
+iPhone SE 2nd Gen,"iPhone12,8",0
+iPhone 12 Mini,"iPhone13,1",92
+iPhone 12,"iPhone13,2",92
+iPhone 12 Pro,"iPhone13,3",92
+iPhone 12 Pro Max,"iPhone13,4",92
+iPhone 13 Mini,"iPhone14,4",92
+iPhone 13,"iPhone14,5",92
+iPhone 13 Pro,"iPhone14,2",92
+iPhone 13 Pro Max,"iPhone14,3",92
 iPhone SE 3rd Gen,"iPhone14,6",0
-iPhone 14,"iPhone14,7",75
-iPhone 14 Plus,"iPhone14,8",75
-iPhone 14 Pro,"iPhone15,2",75
-iPhone 14 Pro Max,"iPhone15,3",75
+iPhone 14,"iPhone14,7",145
+iPhone 14 Plus,"iPhone14,8",145
+iPhone 14 Pro,"iPhone15,2",145
+iPhone 14 Pro Max,"iPhone15,3",145
